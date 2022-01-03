@@ -7,8 +7,6 @@ from datetime import timedelta
 import datetime
 
 
-
-
 def descargaNO2():
 
     file = 'data/ciudades/*.json'
@@ -40,7 +38,6 @@ def descargaNO2():
             fechaInicial = startDate + timedelta(days=i)
             fechaFinal = startDate + timedelta(days=(i + 1))
 
-            print(fechaInicial)
 
             fechaI = fechaInicial.strftime('%Y-%m-%d')
             fechaF = fechaFinal.strftime('%Y-%m-%d')
@@ -67,16 +64,9 @@ def descargaNO2():
 
             # print(diccionarioParcial)
             salida.append(diccionarioParcial.copy())
-                
+        print(salida)        
         df = pd.DataFrame(salida)
         cant = len(df.columns)
-
-        print(maxDate)
-
-        print(fechaI)
-        print(fechaF)
-
-        print(cant)
 
         if(cant == 3):
             # df.to_excel('descarga/' + str(fechaI) + '.xlsx', index=False)
