@@ -15,7 +15,7 @@ def descargaNO2():
     files = glob.glob(file)
 
     filenames = np.array(files)
-    print('CANTIDAD: ' + str(len(filenames)))
+    # print('CANTIDAD: ' + str(len(filenames)))
     Map = geemap.Map()
 
     dfHistorico = pd.read_csv('gases/functions/descarga/gases_NO2.csv')
@@ -78,13 +78,14 @@ def descargaNO2():
             except:
                 datoExistente = 0
                 print('Sin información: ' + str(fechaI))
+                break
 
         if(datoExistente == 1):
             df = pd.DataFrame(salida)
             cant = len(df.columns)
 
             finalDf = pd.concat([dfHistorico, df])
-            finalDf.to_csv('gases/functions/descarga/gases_NO2.csv', index=False)
+            finalDf.to_csv('gases/functions/temp/' + str(fechaI) + '.csv', index=False)
             print('Datos actualizados: ' + str(fechaI))
 
         else:
