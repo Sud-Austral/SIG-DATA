@@ -30,7 +30,11 @@ def descargaNO2():
 
     # ¡¡¡IMPORTANTE!!!
     # ELIMINAR LA RESTA, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
-
+    fechaInicial = ''
+    fechaFinal = ''
+    
+    fechaI = ''
+    fechaF = ''
     for i in range(1):
         salida = []
         
