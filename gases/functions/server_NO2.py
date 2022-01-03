@@ -13,7 +13,7 @@ def descargaNO2():
     files = glob.glob(file)
 
     filenames = np.array(files)
-
+    print('CANTIDAD: ' + str(len(filenames)))
     Map = geemap.Map()
 
     dfHistorico = pd.read_csv('gases/functions/descarga/gases_NO2.csv')
@@ -26,15 +26,8 @@ def descargaNO2():
     
     startDate = datetime.datetime.now() - timedelta(days=difference - 1)
 
-    salida = []
-
     # ¡¡¡IMPORTANTE!!!
     # CAMBIAR NÚMERO '1' DEL PRIMER BUCLE, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
-    fechaInicial = startDate
-    fechaFinal = startDate
-
-    fechaI = fechaInicial.strftime('%Y-%m-%d')
-    fechaF = fechaFinal.strftime('%Y-%m-%d')
 
     for i in range(1):
 
