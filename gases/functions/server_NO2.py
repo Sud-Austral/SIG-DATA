@@ -58,6 +58,9 @@ def descargaNO2():
 
             )
 
+            print(fechaI)
+            print(fechaF)
+
             # Asegurarse de que sea un solo valor
             diccionarioParcial = Datos_Mediana.getInfo()['features'][0]['properties']
             diccionarioParcial['Fecha'] = fechaI
@@ -65,7 +68,7 @@ def descargaNO2():
             # print(diccionarioParcial)
             salida.append(diccionarioParcial.copy())
 
-        print(fechaInicial)        
+        
         df = pd.DataFrame(salida)
         cant = len(df.columns)
 
