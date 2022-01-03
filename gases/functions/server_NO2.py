@@ -84,8 +84,7 @@ def descargaNO2():
             df = pd.DataFrame(salida)
             cant = len(df.columns)
 
-            finalDf = pd.concat([dfHistorico, df])
-            finalDf.to_csv('gases/functions/temp/' + str(fechaI) + '.csv', index=False)
+            df.to_csv('gases/functions/temp/' + str(fechaI) + '.csv', index=False)
             print('Datos actualizados: ' + str(fechaI))
 
         else:
