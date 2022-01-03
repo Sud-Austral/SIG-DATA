@@ -36,41 +36,49 @@ def descargaNO2():
     # ¡¡¡IMPORTANTE!!!
     # CAMBIAR NÚMERO '1' DEL PRIMER BUCLE, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
 
-    for i in range(difference):
+    for i in range(1):
 
         salida = []
         
         for j in filenames:
+            try:
+                fechaInicial = startDate + timedelta(days=i)
+                fechaFinal = startDate + timedelta(days=(i + 1))
 
-            fechaInicial = startDate + timedelta(days=i)
-            fechaFinal = startDate + timedelta(days=(i + 1))
+                fechaI = fechaInicial.strftime('%Y-%m-%d')
+                fechaF = fechaFinal.strftime('%Y-%m-%d')
 
-            fechaI = fechaInicial.strftime('%Y-%m-%d')
-            fechaF = fechaFinal.strftime('%Y-%m-%d')
+                dataset = ee.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2') \
+                            .filter(ee.Filter.date(fechaI, fechaF))
 
-            dataset = ee.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2') \
-                          .filter(ee.Filter.date(fechaI, fechaF))
+                col_final = dataset.mean().select('NO2_column_number_density')
 
-            col_final = dataset.mean().select('NO2_column_number_density')
+                geom = geemap.geojson_to_ee(j)
+                geom = geom.select('id_ciud_N', 'NO2_column_number_density')
 
-            geom = geemap.geojson_to_ee(j)
-            geom = geom.select('id_ciud_N', 'NO2_column_number_density')
+                Datos_Mediana = col_final.reduceRegions (
+                collection = geom,
+                crs = 'EPSG:4326',
+                reducer = ee.Reducer.mean(),
+                scale = 500
 
-            Datos_Mediana = col_final.reduceRegions (
-              collection = geom,
-              crs = 'EPSG:4326',
-              reducer = ee.Reducer.mean(),
-              scale = 500
+                )
 
-            )
+                # Asegurarse de que sea un solo valor
+                diccionarioParcial = Datos_Mediana.getInfo()['features'][0]['properties']
+                diccionarioParcial['Fecha'] = fechaI
 
-            # Asegurarse de que sea un solo valor
-            diccionarioParcial = Datos_Mediana.getInfo()['features'][0]['properties']
-            diccionarioParcial['Fecha'] = fechaI
+                # print(diccionarioParcial)
+                salida.append(diccionarioParcial.copy())
 
-            # print(diccionarioParcial)
-            salida.append(diccionarioParcial.copy())
+            except:
 
+                print('Sin información: ' + str(fechaI))
+
+                ciudadID = int(j.replace('data/ciudades\\', '').replace('.json',''))
+
+                nulo = {'id_ciud_N': ciudadID, 'mean': '', 'Fecha': str(fechaI)'}
+                salida.append(nulo.copy())
         
         df = pd.DataFrame(salida)
         cant = len(df.columns)
@@ -81,7 +89,7 @@ def descargaNO2():
             finalDf.to_csv('gases/functions/descarga/gases_NO2.csv', index=False)
             print('Datos actualizados: ' + str(fechaI))
         else:
-            print('Sin información: ' + str(fechaI))
+            pass
 
 if __name__ == '__main__':
     descargaNO2()
