@@ -1,4 +1,4 @@
-name: GEE
+name: GEE - GASES
 on:
     push:
         branches:
