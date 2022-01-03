@@ -83,10 +83,11 @@ def descargaNO2():
         if(datoExistente == 1):
             df = pd.DataFrame(salida)
             cant = len(df.columns)
-
-            df.to_csv('gases/functions/temp/' + str(fechaI) + '.csv', index=False)
-            print('Datos actualizados: ' + str(fechaI))
-
+            if(cant >= 3):
+                df.to_csv('gases/functions/temp/' + str(fechaI) + '.csv', index=False)
+                print('Datos actualizados: ' + str(fechaI))
+            else:
+                print('Sin datos: ' + str(fechaI))
         else:
             pass
 
