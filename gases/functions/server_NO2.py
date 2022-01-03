@@ -13,7 +13,7 @@ filenames = np.array(files)
 
 Map = geemap.Map()
 
-dfHistorico = pd.read_csv('descarga/gases_NO2.csv')
+dfHistorico = pd.read_csv('gases/functions/descarga/gases_NO2.csv')
 maxDate = dfHistorico['Fecha'].max().replace('-','/')
 
 date_object = datetime.datetime.strptime(maxDate, '%Y/%m/%d')
@@ -75,7 +75,7 @@ def descargaNO2():
         if(cant == 3):
             # df.to_excel('descarga/' + str(fechaI) + '.xlsx', index=False)
             finalDf = pd.concat([dfHistorico, df])
-            finalDf.to_csv('descarga/gases_NO2.csv', index=False)
+            finalDf.to_csv('gases/functions/descarga/gases_NO2.csv', index=False)
             print('Datos actualizados: ' + str(fechaI))
         else:
             print('Sin información: ' + str(fechaI))
