@@ -32,7 +32,7 @@ def descargaNO2():
     # ELIMINAR LA RESTA, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
     fechaInicial = ''
     fechaFinal = ''
-    
+
     fechaI = ''
     fechaF = ''
     for i in range(1):
@@ -62,9 +62,6 @@ def descargaNO2():
 
             )
 
-            print(fechaI)
-            print(fechaF)
-
             # Asegurarse de que sea un solo valor
             diccionarioParcial = Datos_Mediana.getInfo()['features'][0]['properties']
             diccionarioParcial['Fecha'] = fechaI
@@ -80,9 +77,9 @@ def descargaNO2():
             # df.to_excel('descarga/' + str(fechaI) + '.xlsx', index=False)
             finalDf = pd.concat([dfHistorico, df])
             finalDf.to_csv('gases/functions/descarga/gases_NO2.csv', index=False)
-            print('Datos actualizados')
+            print('Datos actualizados: ' + str(fechaI))
         else:
-            print('Sin información')
+            print('Sin información: ' + str(fechaI))
 
 if __name__ == '__main__':
     descargaNO2()
