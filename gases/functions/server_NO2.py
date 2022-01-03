@@ -87,7 +87,7 @@ def descargaNO2():
                 df.to_csv('gases/functions/temp/' + str(fechaI) + '.csv', index=False)
                 print('Datos actualizados: ' + str(fechaI))
             else:
-                print('Sin datos: ' + str(fechaI))
+                print('Sin información: ' + str(fechaI))
         else:
             pass
 
