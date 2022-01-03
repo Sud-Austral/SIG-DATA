@@ -70,7 +70,12 @@ def descargaNO2():
                 
         df = pd.DataFrame(salida)
         cant = len(df.columns)
+
         print(maxDate)
+
+        print(fechaI)
+        print(fechaF)
+
         print(cant)
 
         if(cant == 3):
