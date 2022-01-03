@@ -43,7 +43,7 @@ def descargaNO2():
             fechaFinal = startDate + timedelta(days=(i + 1))
 
             print(fechaInicial)
-            
+
             fechaI = fechaInicial.strftime('%Y-%m-%d')
             fechaF = fechaFinal.strftime('%Y-%m-%d')
 
@@ -72,7 +72,7 @@ def descargaNO2():
                 
         df = pd.DataFrame(salida)
         cant = len(df.columns)
-        cant
+        print(cant)
 
         if(cant == 3):
             # df.to_excel('descarga/' + str(fechaI) + '.xlsx', index=False)
