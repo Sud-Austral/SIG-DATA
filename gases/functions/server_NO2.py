@@ -29,12 +29,8 @@ def descargaNO2():
     salida = []
 
     # ¡¡¡IMPORTANTE!!!
-    # ELIMINAR LA RESTA, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
-    fechaInicial = ''
-    fechaFinal = ''
+    # CAMBIAR NÚMERO '1' DEL PRIMER BUCLE, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
 
-    fechaI = ''
-    fechaF = ''
     for i in range(1):
         salida = []
         
