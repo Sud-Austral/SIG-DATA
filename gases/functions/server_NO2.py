@@ -6,23 +6,25 @@ import geemap
 from datetime import timedelta
 import datetime
 
-file = 'data/ciudades/*.json'
-files = glob.glob(file)
 
-filenames = np.array(files)
-
-Map = geemap.Map()
-
-dfHistorico = pd.read_csv('gases/functions/descarga/gases_NO2.csv')
-maxDate = dfHistorico['Fecha'].max().replace('-','/')
-
-date_object = datetime.datetime.strptime(maxDate, '%Y/%m/%d')
-
-currentDate = datetime.datetime.now() - date_object
-difference = currentDate.days
 
 
 def descargaNO2():
+
+    file = 'data/ciudades/*.json'
+    files = glob.glob(file)
+
+    filenames = np.array(files)
+
+    Map = geemap.Map()
+
+    dfHistorico = pd.read_csv('gases/functions/descarga/gases_NO2.csv')
+    maxDate = dfHistorico['Fecha'].max().replace('-','/')
+
+    date_object = datetime.datetime.strptime(maxDate, '%Y/%m/%d')
+
+    currentDate = datetime.datetime.now() - date_object
+    difference = currentDate.days
 
     count = 1
     
