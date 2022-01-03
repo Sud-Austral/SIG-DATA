@@ -5,6 +5,7 @@ import glob
 import geemap
 from datetime import timedelta
 import datetime
+from os import remove
 
 
 def descargaNO2():
@@ -78,7 +79,6 @@ def descargaNO2():
             except:
                 datoExistente = 0
                 print('Sin información: ' + str(fechaI))
-                break
 
         if(datoExistente == 1):
             df = pd.DataFrame(salida)
@@ -91,7 +91,23 @@ def descargaNO2():
         else:
             pass
 
+def consolidar():
+
+    fileDelete = 'gases/functions/temp/*.csv'
+    fileDelete = glob.glob(fileDelete)
+
+    filenamesDelete = np.array(fileDelete)
+    actualizaDF = pd.concat([pd.read_csv(f) for f in filenamesDelete])
+
+    for a in filenamesDelete:
+        remove(a)
+
+    dfHistorico = pd.read_csv('gases/functions/descarga/gases_NO2.csv')
+    finalDf = pd.concat([dfHistorico, actualizaDF])
+
+    finalDf.to_csv('gases/functions/descarga/gases_NO2.csv', index=False)
 
 if __name__ == '__main__':
     descargaNO2()
+    consolidar()
             
