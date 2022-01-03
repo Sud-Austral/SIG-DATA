@@ -36,7 +36,7 @@ def descargaNO2():
     # ¡¡¡IMPORTANTE!!!
     # CAMBIAR NÚMERO '1' DEL PRIMER BUCLE, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
 
-    for i in range(1):
+    for i in range(difference):
 
         salida = []
         
