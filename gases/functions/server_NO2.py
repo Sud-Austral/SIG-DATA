@@ -30,13 +30,16 @@ def descargaNO2():
 
     # ¡¡¡IMPORTANTE!!!
     # CAMBIAR NÚMERO '1' DEL PRIMER BUCLE, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
-    global fechaInicial
-    global fechaFinal
-
-    global fechaI
-    global fechaF
     
+
     for i in range(1):
+
+        global fechaInicial
+        global fechaFinal
+
+        global fechaI
+        global fechaF
+
         salida = []
         
         for j in filenames:
