@@ -9,6 +9,8 @@ import datetime
 
 def descargaNO2():
 
+    datoExistente = 0
+
     file = 'gases/functions/data/ciudades/*.json'
     files = glob.glob(file)
 
@@ -71,25 +73,23 @@ def descargaNO2():
                 # print(diccionarioParcial)
                 salida.append(diccionarioParcial.copy())
 
-            except:
+                datoExistente = 1
 
+            except:
+                datoExistente = 0
                 print('Sin información: ' + str(fechaI))
 
-                ciudadID = int(j.replace('data/ciudades\\', '').replace('.json',''))
+        if(datoExistente == 1):
+            df = pd.DataFrame(salida)
+            cant = len(df.columns)
 
-                nulo = {'id_ciud_N': ciudadID, 'mean': '', 'Fecha': str(fechaI)}
-                salida.append(nulo.copy())
-        
-        df = pd.DataFrame(salida)
-        cant = len(df.columns)
-
-        if(cant == 3):
-            # df.to_excel('descarga/' + str(fechaI) + '.xlsx', index=False)
             finalDf = pd.concat([dfHistorico, df])
             finalDf.to_csv('gases/functions/descarga/gases_NO2.csv', index=False)
             print('Datos actualizados: ' + str(fechaI))
+
         else:
             pass
+
 
 if __name__ == '__main__':
     descargaNO2()
