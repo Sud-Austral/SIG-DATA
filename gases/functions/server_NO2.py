@@ -77,7 +77,7 @@ def descargaNO2():
 
                 ciudadID = int(j.replace('data/ciudades\\', '').replace('.json',''))
 
-                nulo = {'id_ciud_N': ciudadID, 'mean': '', 'Fecha': str(fechaI)'}
+                nulo = {'id_ciud_N': ciudadID, 'mean': '', 'Fecha': str(fechaI)}
                 salida.append(nulo.copy())
         
         df = pd.DataFrame(salida)
