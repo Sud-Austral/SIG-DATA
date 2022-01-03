@@ -30,7 +30,9 @@ def descargaNO2():
 
     # ¡¡¡IMPORTANTE!!!
     # CAMBIAR NÚMERO '1' DEL PRIMER BUCLE, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
-    
+    fechaInicial = startDate + timedelta(days=i)
+    fechaFinal = startDate + timedelta(days=(i + 1))
+
     fechaI = fechaInicial.strftime('%Y-%m-%d')
     fechaF = fechaFinal.strftime('%Y-%m-%d')
 
