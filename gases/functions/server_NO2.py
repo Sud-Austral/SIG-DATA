@@ -64,7 +64,8 @@ def descargaNO2():
 
             # print(diccionarioParcial)
             salida.append(diccionarioParcial.copy())
-        print(salida)        
+
+        print(fechaInicial)        
         df = pd.DataFrame(salida)
         cant = len(df.columns)
 
