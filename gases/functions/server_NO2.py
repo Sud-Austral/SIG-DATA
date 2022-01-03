@@ -25,10 +25,6 @@ def descargaNO2():
 
     currentDate = datetime.datetime.now() - date_object
     difference = currentDate.days
-
-    count = 1
-    
-    
     
     startDate = datetime.datetime.now() - timedelta(days=difference - 1)
 
@@ -74,6 +70,7 @@ def descargaNO2():
                 
         df = pd.DataFrame(salida)
         cant = len(df.columns)
+        print(maxDate)
         print(cant)
 
         if(cant == 3):
