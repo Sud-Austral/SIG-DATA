@@ -76,9 +76,9 @@ def descargaNO2():
             # df.to_excel('descarga/' + str(fechaI) + '.xlsx', index=False)
             finalDf = pd.concat([dfHistorico, df])
             finalDf.to_csv('gases/functions/descarga/gases_NO2.csv', index=False)
-            print('Datos actualizados: ' + str(fechaI))
+            print('Datos actualizados')
         else:
-            print('Sin información: ' + str(fechaI))
+            print('Sin información')
 
 if __name__ == '__main__':
     descargaNO2()
