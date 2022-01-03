@@ -42,6 +42,8 @@ def descargaNO2():
             fechaInicial = startDate + timedelta(days=i)
             fechaFinal = startDate + timedelta(days=(i + 1))
 
+            global fechaInicial
+
             fechaI = fechaInicial.strftime('%Y-%m-%d')
             fechaF = fechaFinal.strftime('%Y-%m-%d')
 
@@ -74,13 +76,11 @@ def descargaNO2():
 
         if(cant == 3):
             # df.to_excel('descarga/' + str(fechaI) + '.xlsx', index=False)
-            sDate = fechaInicial.strftime('%Y-%m-%d')
             finalDf = pd.concat([dfHistorico, df])
             finalDf.to_csv('gases/functions/descarga/gases_NO2.csv', index=False)
-            print('Datos actualizados: ' + str(sDate))
+            print('Datos actualizados: ' + str(fechaI))
         else:
-            sDate = fechaInicial.strftime('%Y-%m-%d')
-            print('Sin información: ' + str(sDate))
+            print('Sin información: ' + str(fechaI))
 
 if __name__ == '__main__':
     descargaNO2()
