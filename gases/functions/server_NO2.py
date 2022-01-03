@@ -9,7 +9,7 @@ import datetime
 
 def descargaNO2():
 
-    file = 'data/ciudades/*.json'
+    file = 'gases/functions/data/ciudades/*.json'
     files = glob.glob(file)
 
     filenames = np.array(files)
@@ -25,6 +25,13 @@ def descargaNO2():
     difference = currentDate.days
     
     startDate = datetime.datetime.now() - timedelta(days=difference - 1)
+
+    # GLOBAL
+    fechaInicial = startDate
+    fechaFinal = startDate
+
+    fechaI = fechaInicial.strftime('%Y-%m-%d')
+    fechaF = fechaFinal.strftime('%Y-%m-%d')
 
     # ¡¡¡IMPORTANTE!!!
     # CAMBIAR NÚMERO '1' DEL PRIMER BUCLE, SE UTILIZA SOLAMENTE EN EL PERÍODO DE PRUEBA, SUSTITUIR POR VARIABLE 'difference'
