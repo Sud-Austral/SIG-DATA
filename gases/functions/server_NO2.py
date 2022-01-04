@@ -8,7 +8,7 @@ import datetime
 from os import remove
 
 
-def descargaNO2():
+def descarga():
 
     datoExistente = 0
 
@@ -108,6 +108,6 @@ def consolidar():
     finalDf.to_csv('gases/functions/descarga/gases_NO2.csv', index=False)
 
 if __name__ == '__main__':
-    descargaNO2()
+    descarga()
     consolidar()
 
