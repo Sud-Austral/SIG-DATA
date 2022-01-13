@@ -105,7 +105,7 @@ def consolidar():
     dfHistorico = pd.read_csv('gases/functions/descarga/gases_CO.csv')
     finalDf = pd.concat([dfHistorico, actualizaDF])
 
-    finalDf.to_csv('gases/functions/descarga/gases_CO.csv', index=False)
+    finalDf.to_excel('gases/functions/descarga/gases_CO.xlsx', index=False)
 
 if __name__ == '__main__':
     descarga()
