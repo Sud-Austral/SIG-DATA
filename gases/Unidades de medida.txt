@@ -1,0 +1,8 @@
+UNIDADES DE MEDIDA
+
+1. NO2 = mol/m^2
+2. HCHO = mol/m^2
+3. SO2 = mol/m^2
+4. AI = Índice
+5. O3 = mol/m^2
+6. CO = mol/m^2
