@@ -19,7 +19,7 @@ def descarga():
     # print('CANTIDAD: ' + str(len(filenames)))
     Map = geemap.Map()
 
-    dfHistorico = pd.read_csv('gases/functions/descarga/gases_CO.csv')
+    dfHistorico = pd.read_excel('gases/functions/descarga/gases_CO.xlsx')
     maxDate = dfHistorico['Fecha'].max().replace('-','/')
 
     date_object = datetime.datetime.strptime(maxDate, '%Y/%m/%d')
@@ -102,7 +102,7 @@ def consolidar():
     for a in filenamesDelete:
         remove(a)
 
-    dfHistorico = pd.read_csv('gases/functions/descarga/gases_CO.csv')
+    dfHistorico = pd.read_excel('gases/functions/descarga/gases_CO.xlsx')
     finalDf = pd.concat([dfHistorico, actualizaDF])
 
     finalDf.columns = ['Parcela_ID', 'id_ciud_N', 'CO_column_number_density']
