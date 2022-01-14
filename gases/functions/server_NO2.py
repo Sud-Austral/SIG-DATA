@@ -97,6 +97,8 @@ def consolidar():
     fileDelete = glob.glob(fileDelete)
 
     filenamesDelete = np.array(fileDelete)
+
+    print('CANTIDAD ARCHIVOS: ' + str(len(filenamesDelete)))
     actualizaDF = pd.concat([pd.read_excel(f) for f in filenamesDelete])
 
     for a in filenamesDelete:
