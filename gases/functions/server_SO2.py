@@ -97,16 +97,21 @@ def consolidar():
     fileDelete = glob.glob(fileDelete)
 
     filenamesDelete = np.array(fileDelete)
-    actualizaDF = pd.concat([pd.read_excel(f) for f in filenamesDelete])
 
-    for a in filenamesDelete:
-        remove(a)
+    if(len(filenamesDelete) > 0):
+        actualizaDF = pd.concat([pd.read_excel(f) for f in filenamesDelete])
 
-    dfHistorico = pd.read_excel('gases/functions/descarga/gases_SO2.xlsx')
-    finalDf = pd.concat([dfHistorico, actualizaDF])
+        for a in filenamesDelete:
+            remove(a)
 
-    finalDf.to_excel('gases/functions/descarga/gases_SO2.xlsx', index=False)
+        dfHistorico = pd.read_excel('gases/functions/descarga/gases_SO2.xlsx')
+        finalDf = pd.concat([dfHistorico, actualizaDF])
 
+        finalDf.to_excel('gases/functions/descarga/gases_SO2.xlsx', index=False)
+
+    else:
+        print('Sin información')
+        
 if __name__ == '__main__':
     descarga()
     consolidar()
