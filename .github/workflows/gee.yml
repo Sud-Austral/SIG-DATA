@@ -25,10 +25,7 @@ jobs:
               run:  |
                    python gases/functions/credentials.py
                    python gases/functions/server_NO2.py
-                   python gases/functions/server_AI.py
-                   python gases/functions/server_CO.py
-                   python gases/functions/server_HCHO.py
-                   python gases/functions/server_SO2.py
+
                    python gases/functions/copiar.py
                    
               env:

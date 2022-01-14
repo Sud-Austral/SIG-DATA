@@ -84,7 +84,12 @@ def descarga():
             df = pd.DataFrame(salida)
             cant = len(df.columns)
             if(cant >= 3):
-                df.to_excel('gases/functions/temp/' + str(fechaI) + '.xlsx', index=False)
+
+                writer = pd.ExcelWriter('gases/functions/temp/' + str(fechaI) + '.xlsx')
+                df.to_excel(writer, index=False)
+                writer.save()
+
+                # df.to_excel('gases/functions/temp/' + str(fechaI) + '.xlsx', index=False)
                 print('Datos actualizados: ' + str(fechaI))
             else:
                 print('Sin información: ' + str(fechaI))
