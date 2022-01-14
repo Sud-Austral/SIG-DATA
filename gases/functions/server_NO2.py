@@ -84,12 +84,7 @@ def descarga():
             df = pd.DataFrame(salida)
             cant = len(df.columns)
             if(cant >= 3):
-
-                writer = pd.ExcelWriter('gases/functions/temp/' + str(fechaI) + '.xlsx')
-                df.to_excel(writer, index=False)
-                writer.save()
-
-                # df.to_excel('gases/functions/temp/' + str(fechaI) + '.xlsx', index=False)
+                df.to_excel('gases/functions/temp/' + str(fechaI) + '.xlsx', index=False)
                 print('Datos actualizados: ' + str(fechaI))
             else:
                 print('Sin información: ' + str(fechaI))
@@ -103,16 +98,19 @@ def consolidar():
 
     filenamesDelete = np.array(fileDelete)
 
-    print('CANTIDAD ARCHIVOS: ' + str(len(filenamesDelete)))
-    actualizaDF = pd.concat([pd.read_excel(f) for f in filenamesDelete])
+    if(len(filenamesDelete) > 0):
+        actualizaDF = pd.concat([pd.read_excel(f) for f in filenamesDelete])
 
-    for a in filenamesDelete:
-        remove(a)
+        for a in filenamesDelete:
+            remove(a)
 
-    dfHistorico = pd.read_excel('gases/functions/descarga/gases_NO2.xlsx')
-    finalDf = pd.concat([dfHistorico, actualizaDF])
+        dfHistorico = pd.read_excel('gases/functions/descarga/gases_NO2.xlsx')
+        finalDf = pd.concat([dfHistorico, actualizaDF])
 
-    finalDf.to_excel('gases/functions/descarga/gases_NO2.xlsx', index=False)
+        finalDf.to_excel('gases/functions/descarga/gases_NO2.xlsx', index=False)
+        
+    else:
+        print('Sin información')
 
 if __name__ == '__main__':
     descarga()
