@@ -84,7 +84,7 @@ def descarga():
             df = pd.DataFrame(salida)
             cant = len(df.columns)
             if(cant >= 3):
-                df.to_csv('gases/functions/temp/' + str(fechaI) + '.csv', index=False)
+                df.to_excel('gases/functions/temp/' + str(fechaI) + '.xlsx', index=False)
                 print('Datos actualizados: ' + str(fechaI))
             else:
                 print('Sin información: ' + str(fechaI))
@@ -93,11 +93,11 @@ def descarga():
 
 def consolidar():
 
-    fileDelete = 'gases/functions/temp/*.csv'
+    fileDelete = 'gases/functions/temp/*.xlsx'
     fileDelete = glob.glob(fileDelete)
 
     filenamesDelete = np.array(fileDelete)
-    actualizaDF = pd.concat([pd.read_csv(f) for f in filenamesDelete])
+    actualizaDF = pd.concat([pd.read_excel(f) for f in filenamesDelete])
 
     for a in filenamesDelete:
         remove(a)
