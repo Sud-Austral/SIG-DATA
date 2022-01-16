@@ -25,6 +25,9 @@ jobs:
               run:  |
                    python gases/functions/credentials.py
 
+                   python gases/functions/server_CO.py
+
+                   python gases/functions/copiar.py
                    
               env:
                   EARTHENGINE_TOKEN: ${{ secrets.EARTHENGINE_TOKEN }}
