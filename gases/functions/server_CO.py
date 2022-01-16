@@ -106,7 +106,7 @@ def consolidar():
         dfHistorico = pd.read_excel('gases/functions/descarga/gases_CO.xlsx')
         finalDf = pd.concat([dfHistorico, actualizaDF])
 
-        finalDf.columns = ['Parcela_ID', 'id_ciud_N', 'CO_column_number_density']
+        finalDf.columns = ['Fecha', 'id_ciud_N', 'CO_column_number_density']
 
         finalDf.to_excel('gases/functions/descarga/gases_CO.xlsx', index=False)
 
