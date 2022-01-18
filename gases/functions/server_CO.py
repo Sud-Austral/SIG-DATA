@@ -99,7 +99,8 @@ def consolidar():
     filenamesDelete = np.array(fileDelete)
     if(len(filenamesDelete) > 0):
         actualizaDF = pd.concat([pd.read_excel(f) for f in filenamesDelete])
-
+        print('COLUMNAS JOIN' + str(actualizaDF.columns))
+        
         for a in filenamesDelete:
             remove(a)
 
