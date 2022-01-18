@@ -99,15 +99,13 @@ def consolidar():
     filenamesDelete = np.array(fileDelete)
     if(len(filenamesDelete) > 0):
         actualizaDF = pd.concat([pd.read_excel(f) for f in filenamesDelete])
-        print('COLUMNAS JOIN' + str(actualizaDF.columns))
-        
+        actualizaDF.columns = ['id_ciud_N', 'CO_column_number_density', 'Fecha']
+
         for a in filenamesDelete:
             remove(a)
 
         dfHistorico = pd.read_excel('gases/functions/descarga/gases_CO.xlsx')
         finalDf = pd.concat([dfHistorico, actualizaDF])
-
-        finalDf.columns = ['Fecha', 'id_ciud_N', 'CO_column_number_density']
 
         finalDf.to_excel('gases/functions/descarga/gases_CO.xlsx', index=False)
 
