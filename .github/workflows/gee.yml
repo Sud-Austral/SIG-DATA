@@ -1,4 +1,5 @@
 name: GEE - GASES
+# python gases/functions/server_CO.py
 on:
     push:
         branches:
@@ -25,7 +26,7 @@ jobs:
               run:  |
                    python gases/functions/credentials.py
                    
-                   python gases/functions/server_CO.py
+                   
                    python gases/functions/server_HCHO.py
                    python gases/functions/server_SO2.py
                    python gases/functions/server_O3.py
