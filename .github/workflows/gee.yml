@@ -1,9 +1,9 @@
 name: GEE - GASES
 
 on:
-    # push:
-        # branches:
-            # - main
+    push:
+        branches:
+            - main
 
     schedule:
     - cron:  '0 0 * * *'
@@ -59,4 +59,3 @@ jobs:
                 commit_author: DataIntelligence BOT <hectorflores329@gmail.com>
 
                 push_options: '--force'
-            
