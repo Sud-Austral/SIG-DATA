@@ -1,11 +1,12 @@
 import pandas as pd
 import numpy as np
-import ee
+#import ee
 import glob
-import geemap
+#import geemap
 from datetime import timedelta
 import datetime
 from os import remove
+import sys
 
 
 def descarga():
@@ -115,7 +116,17 @@ def consolidar():
 if __name__ == '__main__':
     #descarga()
     #consolidar()
-    import ee
-    import geemap
+    try:
+        import ee
+    except:
+        print("Error en EE")
+        error = sys.exc_info()[1]
+        print(error)
+    try:
+        import geemap
+    except:
+        print("Error en GEEMAP")
+        error = sys.exc_info()[1]
+        print(error)
     print("Hola")
 
