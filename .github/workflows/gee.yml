@@ -22,14 +22,11 @@ jobs:
                   pip install --user --no-cache-dir Cython
                   pip install --user -r requirements.txt
                   pip install --user .
-                  pip install -r requirements.txt
             - name: PROCESS
               run:  |
-                   echo "Comenzamos..."
                    python gases/functions/credentials.py
-                   echo "Credenciales listas"
+                   
                    python gases/functions/server_CO.py
-                   echo "CO listo"
                    python gases/functions/server_HCHO.py
                    python gases/functions/server_SO2.py
                    python gases/functions/server_O3.py
