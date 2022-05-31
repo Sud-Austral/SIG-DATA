@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
-#import ee
+import ee
 import glob
-#import geemap
+import geemap
 from datetime import timedelta
 import datetime
 from os import remove
