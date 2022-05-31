@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import ee
+#import ee
 import glob
 import geemap
 from datetime import timedelta
@@ -113,6 +113,7 @@ def consolidar():
         print('Sin información')
 
 if __name__ == '__main__':
-    descarga()
-    consolidar()
+    #descarga()
+    #consolidar()
+    print("Hola")
 
