@@ -24,9 +24,11 @@ jobs:
                   pip install --user .
             - name: PROCESS
               run:  |
+                   echo "Comenzamos..."
                    python gases/functions/credentials.py
-                   
+                   echo "Credenciales listas"
                    python gases/functions/server_CO.py
+                   echo "CO listo"
                    python gases/functions/server_HCHO.py
                    python gases/functions/server_SO2.py
                    python gases/functions/server_O3.py
