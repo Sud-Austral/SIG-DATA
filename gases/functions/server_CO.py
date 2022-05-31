@@ -115,8 +115,7 @@ def consolidar():
 if __name__ == '__main__':
     #descarga()
     #consolidar()
-    #import ee
-    import glob
+    import ee
     import geemap
     print("Hola")
 
