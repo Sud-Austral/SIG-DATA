@@ -120,13 +120,13 @@ if __name__ == '__main__':
         import ee
     except:
         print("Error en EE")
-        error = sys.exc_info()[1]
+        error = sys.exc_info()
         print(error)
     try:
         import geemap
     except:
         print("Error en GEEMAP")
-        error = sys.exc_info()[1]
+        error = sys.exc_info()
         print(error)
     print("Hola")
 
