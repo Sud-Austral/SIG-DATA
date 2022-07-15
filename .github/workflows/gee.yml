@@ -27,12 +27,17 @@ jobs:
             - name: PROCESS
               run:  |
                    python gases/functions/credentials.py
-                   
+                   echo "1"
                    python gases/functions/server_CO.py
+                   echo "2"
                    python gases/functions/server_HCHO.py
+                   echo "3"
                    python gases/functions/server_SO2.py
+                   echo "4"
                    python gases/functions/server_O3.py
+                   echo "5"
                    python gases/functions/server_AI.py
+                   echo "6"
                    python gases/functions/server_NO2.py
                    
                    python gases/functions/copiar.py
