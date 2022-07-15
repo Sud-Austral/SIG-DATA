@@ -70,8 +70,9 @@ def descarga():
                 # Asegurarse de que sea un solo valor
                 diccionarioParcial = Datos_Mediana.getInfo()['features'][0]['properties']
                 diccionarioParcial['Fecha'] = fechaI
+                
 
-                # print(diccionarioParcial)
+                print(diccionarioParcial)
                 salida.append(diccionarioParcial.copy())
 
                 datoExistente = 1
