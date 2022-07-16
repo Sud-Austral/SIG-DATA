@@ -38,6 +38,6 @@ pip install -U geodemo
 11. The link to your package on conda-forage should be <https://anaconda.org/conda-forge/package-name>, such as <https://anaconda.org/conda-forge/geodemo>
 
 
-## Credits
+## Credits Luis
 
 This package was created with [Cookiecutter](https://github.com/cookiecutter/cookiecutter) and the [giswqs/pypackage](https://github.com/giswqs/pypackage) project template.
